@@ -8,12 +8,15 @@
 
   <div class="row" *ngIf="!loading">
       <div class="col-sm-4" *ngFor="let noticia of lerNoticias.noticias">
-        <div class="card">
+        <div class="card border-0">
           <img class="card-img-top" [src]="noticia.imagens[0].url">
           <div class="card-block">
             <h4 class="card-title">{{noticia.titulo}}</h4>
             <p class="card-text">{{tratarDescNoticia(noticia.descricao_noticia)}}</p>
-            <a href="#" class="btn btn-outline-primary">Ler</a>
+            
+            <div class="card-block">
+              <a href="#" class="btn btn-outline-primary">Ler</a>
+            </div>
             <p></p>
           </div>
         </div>

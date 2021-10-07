@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   public tratarDescNoticia(descNoticia : string): string {
-       return descNoticia.length <= 170 ? descNoticia.padEnd(170, '') : descNoticia.substring(0, 167) + '...';
+       return descNoticia.length <= 300 ? descNoticia.padEnd(300, ' ') : descNoticia.substring(0, 297) + '...';
   }
 
 }
