@@ -1,0 +1,54 @@
+{ 
+	"noticias": [
+		{
+            "id": 1,
+            "categoria": "noticia",
+            "titulo": "Com Dona Flor",
+            "descricao_noticia": "Gravidez não tem nada grave. O negócio é cuidar, é fazer o pré-natal.",
+            "texto_noticia": "noticia1.txt",
+            "destaque": true,
+            "imagens": [
+                { "url": "/assets/noticias/1/img1.jpg" },
+                { "url": "/assets/noticias/1/img2.jpg" },
+                { "url": "/assets/noticias/1/img3.jpg" },
+                { "url": "/assets/noticias/1/img4.jpg" }
+            ]
+
+        },
+        {
+            "id": 2,
+            "categoria": "noticia",
+            "titulo": "A Associação Quilombola do Povoado do Moinho",
+            "descricao_noticia": "Inaugurou no dia 21/12/2020 a sua Sede Administrativa, resultado de muito esforço da atual Diretoria e colaboração de parceiros.",
+            "texto_noticia": "noticia2.txt",
+            "destaque": true,
+            "imagens": [
+                { "url": "/assets/noticias/2/img1.jpg" },
+                { "url": "/assets/noticias/2/img2.jpg" },
+                { "url": "/assets/noticias/2/img3.jpg" },
+                { "url": "/assets/noticias/2/img4.jpg" },
+                { "url": "/assets/noticias/2/img5.jpg" },
+                { "url": "/assets/noticias/2/img6.jpg" }
+            ]
+        },
+
+        {
+            "id": 3,
+            "categoria": "noticia",
+            "titulo": "Fogo em foco",
+            "descricao_noticia": "O ano de 2020 tem sido marcado pelo aumento das queimadas em muitas áreas do território nacional.",
+            "texto_noticia": "noticia3.txt",
+            "destaque": true,
+            "imagens": [
+                { "url": "/assets/noticias/3/img1.jpg" },
+                { "url": "/assets/noticias/3/img2.jpg" },
+                { "url": "/assets/noticias/3/img3.jpg" },
+                { "url": "/assets/noticias/3/img4.jpg" },
+                { "url": "/assets/noticias/3/img5.jpg" },
+                { "url": "/assets/noticias/3/img6.jpg" }
+            ]
+        }
+
+	]
+	
+}
