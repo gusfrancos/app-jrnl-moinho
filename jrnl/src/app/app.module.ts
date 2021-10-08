@@ -11,6 +11,11 @@ import { ROUTES } from './app-routing.module';
 import { Error404Component } from './error404/error404.component';
 import { MainComponent } from './main/main.component';
 import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-funcionalidades.component';
+import { AcessoComponent } from './acesso/acesso.component';
+import { LoginComponent } from './acesso/login/login.component';
+import { Autenticacao } from './services/autenticacao.service';
+import { AutenticacaoGuard } from './services/autenticacao-guard.service';
+import { Bd } from "./services/bd.service"
 
 @NgModule({
   declarations: [
@@ -20,14 +25,16 @@ import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-
     RodapeComponent,
     Error404Component,
     MainComponent,
-    GestaoFuncionalidadesComponent
+    GestaoFuncionalidadesComponent,
+    AcessoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
