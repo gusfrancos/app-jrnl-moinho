@@ -12,13 +12,16 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app-routing.module';
 import { Error404Component } from './error404/error404.component';
 import { MainComponent } from './main/main.component';
-import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-funcionalidades.component';
+import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-funcionalidades/gestao-funcionalidades.component';
 
 import { LoginComponent } from './acesso/login/login.component';
 import { Autenticacao } from './services/autenticacao.service';
 import { AutenticacaoGuard } from './services/autenticacao-guard.service';
 import { Bd } from "./services/bd.service"
 import { AcessoComponent } from './acesso/acesso.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +33,15 @@ import { AcessoComponent } from './acesso/acesso.component';
     MainComponent,
     GestaoFuncionalidadesComponent,
     LoginComponent,
-    AcessoComponent,
+    AcessoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent]

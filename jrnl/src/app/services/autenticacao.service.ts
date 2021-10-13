@@ -14,14 +14,16 @@ export class Autenticacao {
 
     public async autenticar(email: string, senha: string): Promise<void> {
         var auth = firebaseAuth.getAuth();
+        console.log('Tentando autenticar no firebase...')
         console.log(email)
         await firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
         .then((resposta: any) => {
             auth.currentUser?.getIdToken()
                 .then((idToken) => {
+                    console.log('Autenticou corretamente...')
                     this.token_id = idToken
                     localStorage.setItem('idToken', idToken)
-                    this.router.navigate(['/home'])
+                    this.router.navigate(['/gestao'])
                 })
         })
         .catch((error: Error) => console.log(error))
