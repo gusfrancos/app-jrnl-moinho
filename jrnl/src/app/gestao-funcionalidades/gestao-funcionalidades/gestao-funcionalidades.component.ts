@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Autenticacao } from '../../services/autenticacao.service';
+import * as firebaseAuth from "firebase/auth";
 
 
 @Component({
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestaoFuncionalidadesComponent implements OnInit {
 
-  constructor() { }
+  public  email: string | undefined;
+  closeResult: string | undefined;
+
+
+  constructor(private autenticacao: Autenticacao) { }
 
   ngOnInit(): void {
+    firebaseAuth.getAuth().onAuthStateChanged((user) => {
+
+      this.email = user?.email === null ? '' : user?.email;
+    })
+  }
+
+  public sair() : void {
+    this.autenticacao.sair();
   }
 
 }

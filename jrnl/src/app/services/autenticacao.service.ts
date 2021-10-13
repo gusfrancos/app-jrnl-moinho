@@ -27,7 +27,7 @@ export class Autenticacao {
                 })
         })
         .catch((error: Error) => console.log(error))
-        
+
     }
 
     public sair() : void {
@@ -35,23 +35,30 @@ export class Autenticacao {
             localStorage.removeItem('idToken');
             this.router.navigate(['/'])
         });
-        
+
     }
 
     public autenticado() : boolean {
-       /* if (this.token_id === undefined) {
-            this.router.navigate(['/'])
-        }*/
-        return localStorage.getItem('idToken') !== null;
+      console.log(this.token_id)
+        if(this.token_id === undefined && localStorage.getItem('idToken') != null){
+          this.token_id = localStorage.getItem('idToken')
+        }
+        console.log(this.token_id)
+
+        if (this.token_id === undefined) {
+          console.log("Eh para sair")
+            this.router.navigate(['acesso'])
+        }
+        return this.token_id != undefined
     }
 
     public cadastrarUsuario(usuario: Usuario): Promise<any> {
 
         var firebaseDB = getDatabase();
         var auth = firebaseAuth.getAuth();
-               
+
         return firebaseAuth.createUserWithEmailAndPassword(firebaseAuth.getAuth(), usuario.email, usuario.senha)
-        .then((userCredential) => { 
+        .then((userCredential) => {
             set(ref(firebaseDB,'usuario_detalhe/' + auth.currentUser?.uid ), {
                 nome_completo: usuario.nome_completo,
                 email: usuario.email,
@@ -61,7 +68,7 @@ export class Autenticacao {
         .catch ((error) => {
             console.log(error.message);
             console.log("ErrorCode:" + this.VerifyErroCode(error.code))
-        }) 
+        })
     }
 
 
