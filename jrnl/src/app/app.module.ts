@@ -20,8 +20,10 @@ import { AutenticacaoGuard } from './services/autenticacao-guard.service';
 import { Bd } from "./services/bd.service"
 import { AcessoComponent } from './acesso/acesso.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent]
