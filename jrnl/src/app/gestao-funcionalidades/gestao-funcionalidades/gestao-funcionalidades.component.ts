@@ -6,7 +6,7 @@ import * as firebaseAuth from "firebase/auth";
 @Component({
   selector: 'app-gestao-funcionalidades',
   templateUrl: './gestao-funcionalidades.component.html',
-  styleUrls: ['./gestao-funcionalidades.component.css']
+  styleUrls: ['./gestao-funcionalidades.component.scss']
 })
 export class GestaoFuncionalidadesComponent implements OnInit {
 
