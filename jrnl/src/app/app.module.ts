@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app-routing.module';
 import { Error404Component } from './error404/error404.component';
 import { MainComponent } from './main/main.component';
-import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-funcionalidades/gestao-funcionalidades.component';
 
 import { LoginComponent } from './acesso/login/login.component';
 import { Autenticacao } from './services/autenticacao.service';
@@ -33,7 +32,6 @@ import {MatIconModule} from '@angular/material/icon';
     RodapeComponent,
     Error404Component,
     MainComponent,
-    GestaoFuncionalidadesComponent,
     LoginComponent,
     AcessoComponent
   ],
