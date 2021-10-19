@@ -6,31 +6,33 @@
       <div class="card " style="width: 20rem;">
         <div class="card-body">
           <div class="card-title"></div>
-          
+
           <form [formGroup]="formulario" (ngSubmit)="autenticar()">
             <div class="form-group">
-              <input 
-              type="email" 
-              class="form-control" 
+              <input
+              type="email"
+              class="form-control"
               placeholder="E-mail"
               formControlName = "email"
               >
             </div>
             <div class="form-group">
-              <input 
+              <input
               type="password"
-              class="form-control" 
+              class="form-control"
               placeholder="Senha"
               formControlName = "senha"
-              
+
               >
             </div>
             <button type="submit" class="btn btn-primary btn-sm btn-block">Entrar</button>
           </form>
           <hr />
-          <!--
-          <p class="small text-danger text-center">O nome de usuário inserido não pertence a uma conta. Verifique seu nome de usuário e tente novamente.</p>
-          -->
+
+          <p *ngIf="usuarioInvalido" class="small text-danger text-center">O nome de usuário inserido não pertence a uma conta válida. Verifique seu nome de usuário e tente novamente.</p>
+          <p *ngIf="senhaVazia" class="small text-danger text-center">Por favor, digitar a senha para autenticação.</p>
+          <p *ngIf="emailVazio" class="small text-danger text-center">Por favor, digitar o email para autenticação.</p>
+
         </div>
       </div>
 

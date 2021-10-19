@@ -12,21 +12,24 @@ export class Autenticacao {
 
     constructor(private router: Router) {}
 
-    public async autenticar(email: string, senha: string): Promise<void> {
+    public async autenticar(email: string, senha: string): Promise<any> {
         var auth = firebaseAuth.getAuth();
+        var autenticou = '';
         console.log('Tentando autenticar no firebase...')
         console.log(email)
-        await firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
+         firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
         .then((resposta: any) => {
             auth.currentUser?.getIdToken()
                 .then((idToken) => {
                     console.log('Autenticou corretamente...')
+                    autenticou = 'true'
                     this.token_id = idToken
                     localStorage.setItem('idToken', idToken)
-                    this.router.navigate(['/gestao'])
                 })
         })
-        .catch((error: Error) => console.log(error))
+        .catch((error: Error) => { autenticou = error.message })
+
+        return autenticou;
 
     }
 
