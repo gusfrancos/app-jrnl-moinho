@@ -4,7 +4,6 @@ import { getDatabase, ref, set } from "firebase/database";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
-
 @Injectable()
 export class Autenticacao {
 
@@ -12,33 +11,48 @@ export class Autenticacao {
 
     constructor(private router: Router) {}
 
-    public async autenticar(email: string, senha: string): Promise<any> {
+    public async autenticar(email: string, senha: string): Promise<boolean> {
         var auth = firebaseAuth.getAuth();
-        var autenticou = '';
+        var autenticou = false;
         console.log('Tentando autenticar no firebase...')
-        console.log(email)
-         firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
-        .then((resposta: any) => {
-            auth.currentUser?.getIdToken()
-                .then((idToken) => {
-                    console.log('Autenticou corretamente...')
-                    autenticou = 'true'
-                    this.token_id = idToken
-                    localStorage.setItem('idToken', idToken)
-                })
+
+        await firebaseAuth.signInWithEmailAndPassword(auth, email, senha);
+
+        await auth.currentUser?.getIdToken()
+        .then((idToken) => {
+            console.log('Autenticou corretamente...')
+            this.token_id = idToken
+            localStorage.setItem('idToken', idToken)
+
+         })
+         return new Promise((resolve, reject) => {
+          if(localStorage.getItem('idToken') != null){
+            setTimeout(() => resolve(true), 2000)
+          } else {
+            reject(false)
+          }
+
+
         })
-        .catch((error: Error) => { autenticou = error.message })
+        .then((retorno: boolean ) => {
 
-        return autenticou;
-
-    }
-
-    public sair() : void {
-        firebaseAuth.getAuth().signOut().then(() => {
-            localStorage.removeItem('idToken');
-            this.router.navigate(['/'])
+          return retorno
         });
 
+
+
+   }
+
+
+
+
+
+
+
+    public removerAutenticacao() : void {
+        firebaseAuth.getAuth().signOut().then(() => {
+            localStorage.removeItem('idToken');
+        });
     }
 
     public autenticado() : boolean {

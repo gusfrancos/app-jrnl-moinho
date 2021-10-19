@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.autenticacao.removerAutenticacao();
   }
 
   public exibirPainelCadastro(): void {
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
     ).then((resposta: any) => {
 
       console.log('Resposta: ' + resposta)
-      if(resposta === 'true'){
+      if(resposta === true){
         console.log('Mandar para o gestão')
         this.router.navigate(['/gestao'])
       } else {
@@ -66,8 +67,5 @@ export class LoginComponent implements OnInit {
       }
 
     });
-
-
-
   }
 }
