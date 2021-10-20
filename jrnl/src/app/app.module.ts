@@ -1,29 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-import { AppComponent } from './app.component';
-import { TopoComponent } from './topo/topo.component';
-import { HomeComponent } from './home/home.component';
-import { RodapeComponent } from './rodape/rodape.component';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { ROUTES } from './app-routing.module';
-import { Error404Component } from './error404/error404.component';
-import { MainComponent } from './main/main.component';
-
-import { LoginComponent } from './acesso/login/login.component';
-import { Autenticacao } from './services/autenticacao.service';
-import { AutenticacaoGuard } from './services/autenticacao-guard.service';
-import { Bd } from "./services/bd.service"
-import { AcessoComponent } from './acesso/acesso.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
+import { AcessoComponent } from './acesso/acesso.component';
+import { LoginComponent } from './acesso/login/login.component';
+import { ROUTES } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { Error404Component } from './error404/error404.component';
 import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-funcionalidades.component';
+import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
+import { RodapeComponent } from './rodape/rodape.component';
+import { AutenticacaoGuard } from './services/autenticacao-guard.service';
+import { Autenticacao } from './services/autenticacao.service';
+import { Bd } from './services/bd.service';
+import { TopoComponent } from './topo/topo.component';
+
 
 
 @NgModule({

@@ -33,7 +33,7 @@ export class Autenticacao {
 
         return new Promise((resolve, reject) => {
             if(autenticou){
-                setTimeout(() => resolve(true), 2000)
+                setTimeout(() => resolve(true), 1000)
             } else {
               setTimeout(() => resolve(false), 100)
             }
