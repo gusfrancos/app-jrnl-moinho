@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-funcionalidades.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {MatIconModule} from '@angular/material/icon';
     Error404Component,
     MainComponent,
     LoginComponent,
-    AcessoComponent
+    AcessoComponent,
+    GestaoFuncionalidadesComponent
   ],
   imports: [
     BrowserModule,
