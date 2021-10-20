@@ -1,0 +1,27 @@
+
+<mat-toolbar color="primary">
+  <span>Gestão de Funcionalidades (App Moinho)</span>
+  <span class="row-spacer"></span>
+</mat-toolbar>
+
+<mat-toolbar>
+    <span>
+      <button mat-button  [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>note_add</mat-icon>
+    <span><a href="gestao/noticias" >Noticias</a></span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>exit_to_app</mat-icon>
+    <span><a href="acesso" (click)="sair()">Sair</a></span>
+  </button>
+</mat-menu>
+
+
+

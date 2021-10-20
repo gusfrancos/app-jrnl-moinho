@@ -1,8 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
-import { Router } from "@angular/router";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Autenticacao } from 'src/app/services/autenticacao.service';
-import * as firebaseAuth from 'firebase/auth';
 
 @Component({
   selector: 'app-login',

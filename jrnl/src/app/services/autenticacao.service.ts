@@ -33,7 +33,7 @@ export class Autenticacao {
 
         return new Promise((resolve, reject) => {
             if(autenticou){
-                setTimeout(() => resolve(true), 2000)
+                setTimeout(() => resolve(true), 1000)
             } else {
               setTimeout(() => resolve(false), 100)
             }
@@ -43,17 +43,12 @@ export class Autenticacao {
         });
       }
 
+      public sair() : void {
+        firebaseAuth.getAuth().signOut().then(() => {
+            localStorage.removeItem('idToken');
+        });
 
-
-
-
-
-
-
-
-
-
-
+    }
 
     public removerAutenticacao() : void {
         firebaseAuth.getAuth().signOut().then(() => {
@@ -69,7 +64,7 @@ export class Autenticacao {
         console.log(this.token_id)
 
         if (this.token_id === undefined) {
-          console.log("Eh para sair")
+            console.log("Não autenticado deve voltar para acesso")
             this.router.navigate(['acesso'])
         }
         return this.token_id != undefined

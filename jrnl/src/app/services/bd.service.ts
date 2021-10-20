@@ -1,10 +1,10 @@
-import * as firebaseAuth from "firebase/auth";
-import { getDatabase, push, ref } from "firebase/database";
-import * as firebase from "firebase/app";
-import * as firestorage from 'firebase/storage'
+import * as firebase from 'firebase/app';
+import * as firebaseAuth from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
+import * as firestorage from 'firebase/storage';
 
 export class Bd {
-   
+
     public publicar(publicacao: any): void {
         // Initialize Firebase
         var app = firebase.initializeApp(firebaseConfig);
@@ -12,18 +12,18 @@ export class Bd {
         var auth = firebaseAuth.getAuth();
         var storage = firestorage.getStorage()
         var storageRef =  firestorage.ref(storage,`imagens/$nomeImagem`)
-     
 
 
-        
+
+
         /*
         push(ref(firebaseDB,'publicacoes/' + auth.currentUser?.uid ), {
             email: publicacao.email,
             titulo: publicacao.titulo
           }).catch ((error) => {
             console.log(error.message);
-        }) 
-        
+        })
+
         */
 
     }
