@@ -61,10 +61,9 @@ export class LoginComponent implements OnInit {
       if(resposta === true){
         console.log('Mandar para o gestão')
         this.router.navigate(['/gestao'])
-      } else {
-
-        this.usuarioInvalido = true;
       }
+
+      this.usuarioInvalido = true;
 
     });
   }

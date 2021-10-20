@@ -16,32 +16,38 @@ export class Autenticacao {
         var autenticou = false;
         console.log('Tentando autenticar no firebase...')
 
-        await firebaseAuth.signInWithEmailAndPassword(auth, email, senha);
+        await firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
+        .then(() => {
+          autenticou = true
+        }).catch((error: Error) => { console.log('Não autenticou') })
 
-        await auth.currentUser?.getIdToken()
-        .then((idToken) => {
-            console.log('Autenticou corretamente...')
-            this.token_id = idToken
-            localStorage.setItem('idToken', idToken)
+        if (autenticou) {
+            await auth.currentUser?.getIdToken()
+                  .then((idToken) => {
+                      console.log('Autenticou corretamente...')
+                      this.token_id = idToken
+                      localStorage.setItem('idToken', idToken)
 
-         })
-         return new Promise((resolve, reject) => {
-          if(localStorage.getItem('idToken') != null){
-            setTimeout(() => resolve(true), 2000)
-          } else {
-            reject(false)
-          }
+                  })
+            }
 
-
-        })
-        .then((retorno: boolean ) => {
-
-          return retorno
+        return new Promise((resolve, reject) => {
+            if(autenticou){
+                setTimeout(() => resolve(true), 2000)
+            } else {
+              setTimeout(() => resolve(false), 100)
+            }
+        }).then((retorno: boolean ) => {
+              console.log('Retorno:' + retorno)
+              return retorno
         });
+      }
 
 
 
-   }
+
+
+
 
 
 
