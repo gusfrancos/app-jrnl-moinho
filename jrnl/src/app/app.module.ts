@@ -42,7 +42,7 @@ import { GestaoFuncionalidadesComponent } from './gestao-funcionalidades/gestao-
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES),
+    RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
