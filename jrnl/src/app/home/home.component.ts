@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HomeService } from './home.services'
+import { HomeService } from '../services/home.services'
 import { Noticia } from '../shared/noticia.model'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [HomeService] 
+  providers: [HomeService]
 })
 export class HomeComponent implements OnInit {
 
@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
         this.lerNoticias = noticias;
         this.loading = false;
       })
-      .catch((param: any) => { 
-        console.log(param); 
+      .catch((param: any) => {
+        console.log(param);
       })
   }
 
