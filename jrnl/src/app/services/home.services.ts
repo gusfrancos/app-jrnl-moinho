@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Noticia } from '../shared/noticia.model';
+import { Noticia } from '../models/noticia.model';
 
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HomeService } from '../services/home.services'
-import { Noticia } from '../shared/noticia.model'
+import { Noticia } from '../models/noticia.model'
 
 @Component({
   selector: 'app-home',

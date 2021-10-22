@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Noticia } from '../../models/noticia.model';
 
 
 @Component({
@@ -9,15 +10,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class NoticiasComponent implements OnInit {
 
+  //noticias: Noticia[] = [
+  //  {_id: '1', categoria: 'teste', titulo: 'Com Dona Flor', descricao_noticia: 'Gravidez não tem nada Grave', texto_noticia: null, destaque: null, imagens: null}
+  //];
+  //displayedColumns = ['id', 'Categoria', 'Titulo', 'Descricao'];
+
+
+displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = ELEMENT_DATA;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSourceNoticias = ELEMENT_DATA;
-
 }
+
+
+
+
+
 
 export interface PeriodicElement {
   name: string;
@@ -38,3 +49,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
+
+
+
+
+
+
+//const ELEMENT_DATA: Noticia[] = [
+//  {_id: '1', titulo: 'Com Dona Flor', descricao_noticia: 'Gravidez não tem nada Grave', destaque: true},
+//];
