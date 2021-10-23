@@ -34,7 +34,7 @@ public async getNoticias(): Promise<Noticia[]> {
     .then((noticias: Noticia[]) => {
       //console.log('segundo then')
       return new Promise((resolve2, reject2) => {
-        setTimeout(() => { resolve2( noticias )}, 2000)
+        setTimeout(() => { resolve2( noticias )}, 500)
       })
     })
     .then((noticias: Noticia[]) => {

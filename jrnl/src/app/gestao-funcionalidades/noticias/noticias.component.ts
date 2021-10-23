@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { Autenticacao } from '../../services/autenticacao.service';
 
 @Component({
   selector: 'app-noticias',
@@ -9,18 +11,18 @@ import { Component, OnInit } from '@angular/core';
 
 export class NoticiasComponent implements OnInit {
 
-  //noticias: Noticia[] = [
-  //  {_id: '1', categoria: 'teste', titulo: 'Com Dona Flor', descricao_noticia: 'Gravidez não tem nada Grave', texto_noticia: null, destaque: null, imagens: null}
-  //];
-  //displayedColumns = ['id', 'Categoria', 'Titulo', 'Descricao'];
-
 
 displayedColumns: string[] = ['id', 'categoria', 'titulo', 'descricao_noticia'];
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
+  constructor(private autenticacao: Autenticacao, private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.autenticacao.autenticado){
+      console.log(' NÃO AUTENTICADO')
+      this.router.navigate(['acesso'])
+
+    }
   }
 }
 

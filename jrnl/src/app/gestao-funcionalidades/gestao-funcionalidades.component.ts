@@ -16,7 +16,13 @@ export class GestaoFuncionalidadesComponent implements OnInit {
   public verNoticia: boolean = false;
 
   ngOnInit(): void {
+    if(!this.autenticacao.autenticado){
+      console.log(' NÃO AUTENTICADO')
+      this.router.navigate(['acesso'])
+
+    }
   }
+
 
   public sair() : void {
     console.log('SAIR')
