@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
@@ -48,7 +49,8 @@ import { TopoComponent } from './topo/topo.component';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ],
   providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent]
