@@ -1,6 +1,7 @@
-import { Noticia } from '../shared/noticia.model'
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { Noticia } from '../models/noticia.model';
 
 
 @Injectable()
@@ -9,8 +10,8 @@ export class HomeService  {
     public noticias: Noticia[]
 
     constructor(private http: HttpClient) {  }
- 
-    
+
+
 public async getNoticias(): Promise<Noticia[]> {
 
     await this.http.get<Noticia[]>("../assets/db/noticias.json")
@@ -33,15 +34,15 @@ public async getNoticias(): Promise<Noticia[]> {
     .then((noticias: Noticia[]) => {
       //console.log('segundo then')
       return new Promise((resolve2, reject2) => {
-        setTimeout(() => { resolve2( noticias )}, 2000)
+        setTimeout(() => { resolve2( noticias )}, 500)
       })
     })
     .then((noticias: Noticia[]) => {
-      
+
       //console.log('Terceiro then')
       return noticias
     });
-  } 
+  }
 
 
 }

@@ -7,21 +7,27 @@
 <mat-toolbar>
     <span>
       <button mat-button  [matMenuTriggerFor]="menu">
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon inline>more_vert</mat-icon>
     </button>
   </span>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="irPara('noticias')">
     <mat-icon>note_add</mat-icon>
-    <span><a href="gestao/noticias" >Noticias</a></span>
+    <span>Noticias</span>
   </button>
-  <button mat-menu-item>
+  <button mat-menu-item (click)="sair()">
     <mat-icon>exit_to_app</mat-icon>
-    <span><a href="acesso" (click)="sair()">Sair</a></span>
+    <span>Sair</span>
   </button>
 </mat-menu>
+
+
+
+<div id="noticias" *ngIf="verNoticia;">
+  <app-noticias></app-noticias>
+  </div>
 
 
 
