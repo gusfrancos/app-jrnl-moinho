@@ -19,7 +19,7 @@ public class NoticiaService {
 	public String salvarNoticia(Noticia noticia) throws InterruptedException, ExecutionException {
 		log.info("NoticiaService: salvarNoticia: Inicio" );
 		Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("users").document(noticia._id).set(noticia);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("noticias").document(noticia._id).set(noticia);
         log.info("NoticiaService: salvarNoticia: FIM" );
         return collectionsApiFuture.get().getUpdateTime().toString();
     }

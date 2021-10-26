@@ -11,6 +11,6 @@ public class Noticia {
     public String titulo;
     public String descricao_noticia;
     public String texto_noticia;
-    //public boolean destaque;
+    public boolean destaque;
     //public Object[] imagens;
 }
