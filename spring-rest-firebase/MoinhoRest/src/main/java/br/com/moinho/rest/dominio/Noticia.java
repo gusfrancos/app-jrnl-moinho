@@ -12,5 +12,9 @@ public class Noticia {
     public String descricao_noticia;
     public String texto_noticia;
     public boolean destaque;
-    //public Object[] imagens;
+    public String urlImg1;
+    public String urlImg2;
+    public String urlImg3;
+    public String urlImg4;
+    public String urlImg5;
 }
