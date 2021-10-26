@@ -6,15 +6,21 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Noticia {
-	public String _id;
-    public String categoria;
-    public String titulo;
-    public String descricao_noticia;
-    public String texto_noticia;
-    public boolean destaque;
-    public String urlImg1;
-    public String urlImg2;
-    public String urlImg3;
-    public String urlImg4;
-    public String urlImg5;
+	private String _id;
+    private String categoria;
+    private String titulo;
+    private String descricao_noticia;
+    private String texto_noticia;
+    private boolean destaque;
+    private String urlImg1;
+    private String urlImg2;
+    private String urlImg3;
+    private String urlImg4;
+    private String urlImg5;
+	
+    public Noticia() {
+		super();
+	}
+ 
+    
 }
