@@ -13,14 +13,13 @@ import br.com.moinho.rest.dominio.Noticia;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-
 @Service
 public class NoticiaService {
 	
 	public String salvarNoticia(Noticia noticia) throws InterruptedException, ExecutionException {
 		log.info("NoticiaService: salvarNoticia: Inicio" );
 		Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("noticias").document(noticia._id).set(noticia);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("users").document(noticia._id).set(noticia);
         log.info("NoticiaService: salvarNoticia: FIM" );
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
