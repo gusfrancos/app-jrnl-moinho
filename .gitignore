@@ -1,4 +1,3 @@
-
 spring-rest-firebase/.metadata/.lock
 spring-rest-firebase/.metadata/.log
 spring-rest-firebase/.metadata/.plugins/org.eclipse.core.resources/.history/1d/20ad441d5434001c181c8fef4aa2d1e5
@@ -326,3 +325,8 @@ spring-rest-firebase/.metadata/.plugins/org.eclipse.core.resources/.projects/Moi
 spring-rest-firebase/.metadata/.plugins/org.eclipse.core.resources/.projects/MoinhoRest/1.tree
 spring-rest-firebase/.metadata/.plugins/org.eclipse.core.resources/.root/5.tree
 spring-rest-firebase/.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml
+
+spring-rest-firebase/.metadata/.*
+*.ini
+jrnl/src/app/app.component.ts
+
