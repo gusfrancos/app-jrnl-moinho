@@ -1,0 +1,24 @@
+[
+  {
+    "_id": 1,
+    "categoria": "restaurante",
+    "titulo": "Super Burger",
+    "descricao_noticia": "Rodízio de Mini-hambúrger com opção de entrada.",
+    "texto_noticia": "1.txt",
+    "destaque": true,
+    "imagens": [
+      {
+        "url": "/assets/noticias/1/img1.jpg"
+      },
+      {
+        "url": "/assets/noticias/1/img2.jpg"
+      },
+      {
+        "url": "/assets/noticias/1/img3.jpg"
+      },
+      {
+        "url": "/assets/noticias/1/img4.jpg"
+      }
+    ]
+  }
+]

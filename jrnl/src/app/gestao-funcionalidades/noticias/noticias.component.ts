@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Noticia } from 'src/app/models/noticia.model';
+import { NoticiasService } from 'src/app/services/noticias.service';
 
 import { Autenticacao } from '../../services/autenticacao.service';
 
@@ -11,11 +14,16 @@ import { Autenticacao } from '../../services/autenticacao.service';
 
 export class NoticiasComponent implements OnInit {
 
-
+dataSource: Observable<Noticia[]>;
 displayedColumns: string[] = ['id', 'categoria', 'titulo', 'descricao_noticia'];
-  dataSource = ELEMENT_DATA;
 
-  constructor(private autenticacao: Autenticacao, private router: Router) { }
+
+  constructor(private autenticacao: Autenticacao,
+              private router: Router,
+              private noticiaService: NoticiasService) {
+
+                this.dataSource =  this.noticiaService.listAll();
+              }
 
   ngOnInit(): void {
     if(!this.autenticacao.autenticado){
@@ -25,23 +33,3 @@ displayedColumns: string[] = ['id', 'categoria', 'titulo', 'descricao_noticia'];
     }
   }
 }
-
-
-
-
-
-
-export interface NoticiaElement {
-  _id: string
-  categoria: string
-  titulo: string
-  descricao_noticia: string
-
-}
-
-const ELEMENT_DATA: NoticiaElement[] = [
-  {_id: '1', categoria: 'Hydrogen', titulo: 'Com Dona Flor', descricao_noticia: 'descricao_noticia'},
-
-];
-
-
