@@ -5,12 +5,14 @@ import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.moinho.rest.dominio.Noticia;
@@ -50,6 +52,12 @@ public class NoticiaController {
 		log.info("NoticiaController: buscarNoticiasDestaque: INIT" );
 		return ResponseEntity.ok(noticiaService.buscarNoticiasDestaque());
 	}
+	
+	@DeleteMapping
+    public String apagarNoticia(@RequestParam String id){
+		log.info("NoticiaController: apagarNoticia: INIT" );
+		return noticiaService.apagarNoticia(id);
+    }
 	
 	@PutMapping
     public String alterarNoticia(@RequestBody Noticia noticia) throws InterruptedException, ExecutionException {
