@@ -102,6 +102,12 @@ public class NoticiaService {
         log.info("NoticiaService: alterarNoticia: dbFirestore: collection: ok" );
         return collectionsApiFuture.get().getUpdateTime().toString();
 	}
+
+	public String apagarNoticia(String id) {
+		Firestore dbFirestore = FirestoreClient.getFirestore();
+        ApiFuture<WriteResult> writeResult = dbFirestore.collection(COL_NAME).document(id).delete();
+        return "Document Noticia com ID "+id+" foi apagado";
+	}
 }
 
 
