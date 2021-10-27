@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
@@ -50,6 +51,52 @@ public class NoticiaService {
 			return noticias;
 		    
 	    }
+
+	public Noticia buscarNoticiaPorId(String id) throws InterruptedException, ExecutionException {
+		log.info("NoticiaService: buscarNoticiaPorId: Inicio" );
+		Firestore dbFirestore = FirestoreClient.getFirestore();
+		log.info("NoticiaService: buscarNoticiaPorId: dbFirestore: ok" );
+		DocumentReference docRef = dbFirestore.collection(COL_NAME).document(id);
+	    log.info("NoticiaService: buscarNoticiaPorId: dbFirestore: docRef: ok" );
+		
+	    ApiFuture<DocumentSnapshot> future = docRef.get();
+		log.info("NoticiaService: buscarNoticiaPorId: dbFirestore: future: ok" );
+		
+	    DocumentSnapshot document = future.get();
+	    log.info("NoticiaService: buscarNoticiaPorId: dbFirestore: future: ok" );
+	    if (document.exists()) {
+	    	log.info("NoticiaService: buscarNoticiaPorId: dbFirestore: future: EXISTE" );
+	    	return document.toObject(Noticia.class);
+	    } else {
+	    	log.info("NoticiaService: buscarNoticiaPorId: dbFirestore: future: NÃO EXISTE" );
+	      return null;
+	    }
+	}
+	
+	public List<Noticia> buscarNoticiasDestaque() throws InterruptedException, ExecutionException {
+		log.info("NoticiaService: buscarNoticiasDestaque: Inicio" );
+		Firestore dbFirestore = FirestoreClient.getFirestore();
+		log.info("NoticiaService: buscarNoticiasDestaque: dbFirestore: ok" );
+		ApiFuture<QuerySnapshot> future =
+				dbFirestore.collection(COL_NAME).whereEqualTo("destaque", true).get();
+	    log.info("NoticiaService: buscarNoticiasDestaque: dbFirestore: collection: ok" );
+		
+	    List<Noticia> noticias = new ArrayList<>();
+		List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+		log.info("NoticiaService: buscarNoticiasDestaque: dbFirestore: getDocuments: ok" );
+		
+		for (QueryDocumentSnapshot document : documents) {
+			noticias.add(document.toObject(Noticia.class));
+		}
+	    
+		log.info("NoticiaService: buscarNoticiasDestaque: dbFirestore: lista: ok" );
+		
+		return noticias;
+	    
+		
+	}
+	
+	
 	}
 
 

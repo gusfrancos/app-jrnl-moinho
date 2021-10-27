@@ -6,6 +6,7 @@ import java.util.concurrent.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,5 +36,17 @@ public class NoticiaController {
 	public ResponseEntity<List<Noticia>> listarTodasNoticias() throws InterruptedException, ExecutionException{
 		log.info("NoticiaController: listarTodasNoticias: INIT" );
 		return ResponseEntity.ok(noticiaService.listarTodasNoticias());
+	}
+	
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<Noticia> buscarNoticiaPorId(@PathVariable String id) throws InterruptedException, ExecutionException{
+		log.info("NoticiaController: listarTodasNoticias: INIT" );
+		return ResponseEntity.ok(noticiaService.buscarNoticiaPorId(id));
+	}
+	
+	@GetMapping(path = "/destaque")
+	public ResponseEntity<List<Noticia>> buscarNoticiasDestaque() throws InterruptedException, ExecutionException{
+		log.info("NoticiaController: buscarNoticiasDestaque: INIT" );
+		return ResponseEntity.ok(noticiaService.buscarNoticiasDestaque());
 	}
 }
