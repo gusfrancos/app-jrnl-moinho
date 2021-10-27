@@ -92,11 +92,16 @@ public class NoticiaService {
 		log.info("NoticiaService: buscarNoticiasDestaque: dbFirestore: lista: ok" );
 		
 		return noticias;
-	    
-		
 	}
-	
-	
+
+	public String alterarNoticia(Noticia noticia) throws InterruptedException, ExecutionException {
+		log.info("NoticiaService: alterarNoticia: Inicio" );
+		Firestore dbFirestore = FirestoreClient.getFirestore();
+		log.info("NoticiaService: alterarNoticia: dbFirestore: ok" );
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(noticia.get_id()).set(noticia);
+        log.info("NoticiaService: alterarNoticia: dbFirestore: collection: ok" );
+        return collectionsApiFuture.get().getUpdateTime().toString();
 	}
+}
 
 

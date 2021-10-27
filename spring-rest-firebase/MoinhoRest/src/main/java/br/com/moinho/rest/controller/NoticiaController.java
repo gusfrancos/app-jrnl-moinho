@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class NoticiaController {
     NoticiaService noticiaService;
 	
 	@PostMapping
-    public String salvarNoticia(@RequestBody Noticia noticia ) throws InterruptedException, ExecutionException {
+    public String salvarNoticia(@RequestBody Noticia noticia) throws InterruptedException, ExecutionException {
 		log.info("NoticiaController: salvarNoticia: INIT" );
 		return noticiaService.salvarNoticia(noticia);
     }
@@ -49,4 +50,10 @@ public class NoticiaController {
 		log.info("NoticiaController: buscarNoticiasDestaque: INIT" );
 		return ResponseEntity.ok(noticiaService.buscarNoticiasDestaque());
 	}
+	
+	@PutMapping
+    public String alterarNoticia(@RequestBody Noticia noticia) throws InterruptedException, ExecutionException {
+		log.info("NoticiaController: alterarNoticia: INIT" );
+		return noticiaService.alterarNoticia(noticia);
+    }
 }
