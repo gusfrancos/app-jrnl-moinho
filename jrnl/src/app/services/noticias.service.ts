@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, tap } from 'rxjs/operators';
+import { delay, first, tap } from 'rxjs/operators';
 
 import { Noticia } from '../models/noticia.model';
 
@@ -16,6 +16,7 @@ export class NoticiasService {
     return this.httpClient.get<Noticia[]>(this.API)
     .pipe(
       first(),
+      //delay(15000),
       tap(not => console.log(not)))
   }
 
