@@ -14,7 +14,7 @@ import { Autenticacao } from '../../services/autenticacao.service';
 
 export class NoticiasComponent implements OnInit {
 
-dataSource: Observable<Noticia[]>;
+dataSource$: Observable<Noticia[]>;
 displayedColumns: string[] = ['id', 'categoria', 'titulo', 'descricao_noticia'];
 
 
@@ -22,7 +22,7 @@ displayedColumns: string[] = ['id', 'categoria', 'titulo', 'descricao_noticia'];
               private router: Router,
               private noticiaService: NoticiasService) {
 
-                this.dataSource =  this.noticiaService.listAll();
+                this.dataSource$ =  this.noticiaService.listAll();
               }
 
   ngOnInit(): void {
