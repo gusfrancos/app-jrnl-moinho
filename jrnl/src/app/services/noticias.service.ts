@@ -9,7 +9,7 @@ import { Noticia } from '../models/noticia.model';
 })
 export class NoticiasService {
 
-  private readonly API = '../../assets/noticias/anoticias.json'
+  private readonly API = '../../assets/noticias/noticias.json'
   constructor(private httpClient: HttpClient) { }
 
   listAll() {

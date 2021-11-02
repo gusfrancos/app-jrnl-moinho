@@ -29,7 +29,7 @@ displayedColumns: string[] = ['id', 'categoria', 'titulo', 'descricao_noticia'];
                 this.dataSource$ =  this.noticiaService.listAll()
                   .pipe(
                     catchError(error => {
-                      this.onError('Erro ao carregar notícias')
+                      this.onError('Não foi possível carregar a lista de notícias')
                       //Este of cria um observable
                       return of ([])
                     })
