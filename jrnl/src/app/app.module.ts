@@ -2,11 +2,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -24,6 +26,8 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { AutenticacaoGuard } from './services/autenticacao-guard.service';
 import { Autenticacao } from './services/autenticacao.service';
 import { Bd } from './services/bd.service';
+import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
+import { SharedModule } from './shared/shared.module';
 import { TopoComponent } from './topo/topo.component';
 
 
@@ -39,7 +43,8 @@ import { TopoComponent } from './topo/topo.component';
     LoginComponent,
     AcessoComponent,
     GestaoFuncionalidadesComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,10 @@ import { TopoComponent } from './topo/topo.component';
     MatIconModule,
     MatTableModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    SharedModule,
+    MatButtonModule
   ],
   providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent]
